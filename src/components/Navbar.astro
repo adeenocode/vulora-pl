@@ -1,0 +1,136 @@
+---
+const menuItems = [
+  { name: 'Co nas wyróżnia', href: '#features' },
+  { name: 'O nas', href: '#about' },
+  { name: 'Produkty', href: '#products' },
+  { name: 'Certyfikacja', href: '#certification' },
+  { name: 'Współpraca', href: '#cooperation' },
+  { name: 'Kontakt', href: '#contact' },
+];
+---
+
+<nav class="fixed w-full bg-black/20 backdrop-blur-xl z-50 transition-all duration-300" id="navbar">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between h-16 lg:h-20">
+      <div class="flex-shrink-0 flex items-center">
+        <a 
+          href="/"
+          class="hover:opacity-80 transition-opacity navbar-logo"
+        >
+          <img src="/images/logo-white.svg" alt="Vulora" class="h-10 lg:h-14 w-auto" />
+        </a>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        {
+          menuItems.map((item) => (
+            <a
+              href={item.href}
+              class="relative text-white/90 hover:text-white transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-white/10 after:absolute after:left-3 after:right-3 after:bottom-1.5 after:h-0.5 after:bg-white after:opacity-0 after:scale-x-0 after:transition-all after:duration-300 hover:after:opacity-100 hover:after:scale-x-100 nav-link"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+      <div class="md:hidden flex items-center">
+        <button
+          id="mobile-menu-button"
+          class="mobile-menu-button text-white/90 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10 active:bg-white/20"
+          aria-label="Menu"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-black/40 backdrop-blur-2xl border-t border-white/10 max-w-7xl mx-auto"
+  >
+    <div class="px-4 py-2 space-y-1">
+      {
+        menuItems.map((item) => (
+          <a
+            href={item.href}
+            class="block px-4 py-2.5 text-white/90 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/10 active:bg-white/20 backdrop-blur-xl"
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!button?.contains(e.target as Node) && !menu?.contains(e.target as Node)) {
+      menu?.classList.add('hidden');
+    }
+  });
+
+  // Scroll behavior
+  const navbar = document.getElementById('navbar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const logo = document.querySelector('.navbar-logo img');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  
+  const updateNavbar = () => {
+    if (window.scrollY > 100) {
+      navbar?.classList.remove('bg-black/20');
+      navbar?.classList.add('bg-white/80');
+      navbar?.classList.add('shadow-[0_4px_20px_-4px_rgba(43,92,63,0.07)]');
+      navLinks.forEach(link => {
+        link.classList.remove('text-white/90', 'hover:text-white', 'hover:bg-white/10');
+        link.classList.add('text-gray-600', 'hover:text-primary', 'hover:bg-primary/5');
+      });
+      if (mobileMenuButton) {
+        mobileMenuButton.classList.remove('text-white/90', 'hover:text-white', 'hover:bg-white/10', 'active:bg-white/20');
+        mobileMenuButton.classList.add('text-gray-600', 'hover:text-primary', 'hover:bg-primary/5', 'active:bg-primary/10');
+      }
+      if (logo) {
+        logo.src = '/images/logo.svg';
+      }
+    } else {
+      navbar?.classList.add('bg-black/20');
+      navbar?.classList.remove('bg-white/80');
+      navbar?.classList.remove('shadow-[0_4px_20px_-4px_rgba(43,92,63,0.07)]');
+      navLinks.forEach(link => {
+        link.classList.add('text-white/90', 'hover:text-white', 'hover:bg-white/10');
+        link.classList.remove('text-gray-600', 'hover:text-primary', 'hover:bg-primary/5');
+      });
+      if (mobileMenuButton) {
+        mobileMenuButton.classList.add('text-white/90', 'hover:text-white', 'hover:bg-white/10', 'active:bg-white/20');
+        mobileMenuButton.classList.remove('text-gray-600', 'hover:text-primary', 'hover:bg-primary/5', 'active:bg-primary/10');
+      }
+      if (logo) {
+        logo.src = '/images/logo-white.svg';
+      }
+    }
+  };
+
+  window.addEventListener('scroll', updateNavbar);
+  updateNavbar(); // Initial check
+</script>

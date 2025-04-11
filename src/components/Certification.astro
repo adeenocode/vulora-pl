@@ -1,0 +1,98 @@
+---
+import { Icon } from './Icons';
+
+const certifications = [
+  { 
+    name: "Certyfikat Ekologiczny", 
+    icon: "Leaf",
+    description: "Potwierdzenie naturalnego pochodzenia składników"
+  },
+  { 
+    name: "Certyfikat Jakości", 
+    icon: "Sparkles",
+    description: "Gwarancja najwyższej jakości produktów"
+  },
+  { 
+    name: "Certyfikat Bezpieczeństwa", 
+    icon: "Component",
+    description: "Potwierdzenie bezpieczeństwa stosowania"
+  },
+  { 
+    name: "Certyfikat Zgodności EU", 
+    icon: "Globe",
+    description: "Zgodność z normami Unii Europejskiej"
+  }
+];
+---
+
+<section id="certification" class="relative py-20 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#f0f9f0_50%,#ffffff_100%)]"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-t from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute w-[600px] h-[600px] -top-[300px] -right-[300px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"></div>
+    <div class="absolute w-[800px] h-[800px] -bottom-[400px] -left-[400px] rounded-full bg-gradient-to-tr from-accent/5 to-transparent blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-medium mb-6" data-aos="fade-down">
+        <Icon name="Sparkles" size={16} client:load />
+        <span>Certyfikacja</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6" data-aos="fade-up">
+        <span class="bg-gradient-to-r from-[#2C4A40] to-[#3A5A4E] bg-clip-text text-transparent">Certyfikacja</span>
+        <span class="relative inline-block">
+          <span class="bg-gradient-to-r from-[#2C4A40] to-[#3A5A4E] bg-clip-text text-transparent">Vulora</span>
+          <div class="absolute -bottom-2 left-0 w-full h-2 bg-accent/20 -rotate-1"></div>
+        </span>
+      </h2>
+      <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">
+        Jakość i bezpieczeństwo to podstawa naszej działalności. Nasze produkty przeszły 
+        najnowocześniejsze badania potwierdzające ich skuteczność oraz bezpieczeństwo stosowania.
+      </p>
+    </div>
+
+    <!-- Main IUNG Certification -->
+    <div class="max-w-xl mx-auto mb-16" data-aos="fade-up">
+      <div class="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(43,92,63,0.15)] transition-all duration-300">
+        <img 
+          src="/images/iung.png" 
+          alt="Certyfikat IUNG"
+          class="w-full h-auto rounded-xl mb-6"
+        />
+        <h3 class="text-xl font-semibold text-primary mb-4 text-center">
+          Certyfikat IUNG
+        </h3>
+        <p class="text-gray-600 text-center">
+          Potwierdzenie najwyższej jakości i skuteczności naszych produktów przez Instytut Uprawy Nawożenia i Gleboznawstwa
+        </p>
+      </div>
+    </div>
+
+    <!-- Additional Certifications -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {certifications.map((cert, index) => (
+        <div 
+          class="group bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(43,92,63,0.15)] transition-all duration-300"
+          data-aos="fade"
+          data-aos-delay={index * 100}
+        >
+          <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-[0_2px_10px_-2px_rgba(43,92,63,0.1)] mb-6">
+            <Icon name={cert.icon} size={24} className="text-primary" client:load />
+          </div>
+          <p class="text-gray-600">
+            {cert.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-primary/5 text-primary rounded-full">
+        <Icon name="Sparkles" size={20} className="text-primary w-5 h-5 sm:w-6 sm:h-6" client:load />
+        <span class="font-medium">Wszystkie nasze produkty posiadają niezbędne certyfikaty jakości</span>
+      </div>
+    </div>
+  </div>

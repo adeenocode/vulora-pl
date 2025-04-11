@@ -1,0 +1,106 @@
+---
+import { Icon } from './Icons';
+
+const minerals = [
+  { 
+    name: "Magnez",
+    symbol: "Mg",
+    description: "Kluczowy dla wytwarzania chlorofilu i procesu fotosyntezy. Bez magnezu rośliny są blade i słabe, nie mogąc samodzielnie produkować energii ze światła.",
+    color: "from-green-400/40 to-emerald-500/50"
+  },
+  {
+    name: "Żelazo",
+    symbol: "Fe",
+    description: "Niezbędne do produkcji chlorofilu. Niedobór objawia się blednięciem liści, szczególnie u roślin kwaśnych. Uzupełniamy poprzez opryski z nawozami żelazowymi.",
+    color: "from-yellow-400/40 to-orange-500/50"
+  },
+  {
+    name: "Azot",
+    symbol: "N",
+    description: "Podstawowy pierwiastek dla wzrostu i wybarwienia. Niedobór osłabia rośliny i spowalnia wzrost. Nadmiar wymaga obfitego podlewania.",
+    color: "from-sky-400/40 to-blue-500/50"
+  },
+  {
+    name: "Potas i fosfor",
+    symbol: "K+P",
+    description: "Występują w kompoście i popiele. Niedobór objawia się żółknięciem liści i plamami. Wpływają na wzrost, kwitnienie i żywotność owoców.",
+    color: "from-indigo-400/40 to-violet-500/50"
+  },
+  {
+    name: "Wapń",
+    symbol: "Ca",
+    description: "Reguluje odczyn gleby i rozwój korzeni. Wpływa na jakość owoców. Niedobór uzupełniamy skorupkami jajek w kompoście.",
+    color: "from-pink-400/40 to-rose-500/50"
+  },
+  {
+    name: "Miedź",
+    symbol: "Cu",
+    description: "Brak powoduje deformację młodych liści i białe plamy. Hamuje rozwój i zawiązywanie nasion.",
+    color: "from-cyan-400/40 to-teal-500/50"
+  },
+  {
+    name: "Mangan",
+    symbol: "Mn",
+    description: "Wspomaga fotosyntezę i przyswajanie azotu. Niedobór powoduje żółknięcie i brunatne plamy na starszych liściach.",
+    color: "from-blue-400/40 to-indigo-500/50"
+  },
+  {
+    name: "Bor",
+    symbol: "B",
+    description: "Poprawia plonowanie i jakość owoców. Niedobór w glebach lekkich powoduje zniekształcenia roślin, szczególnie zbóż i warzyw.",
+    color: "from-amber-400/40 to-orange-500/50"
+  }
+];
+---
+
+<section id="minerals" class="relative py-20 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[linear-gradient(140deg,#ffffff_0%,#f0f9f0_60%,#ffffff_100%)]"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-t from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute w-[600px] h-[600px] -top-[300px] -right-[300px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"></div>
+    <div class="absolute w-[800px] h-[800px] -bottom-[400px] -left-[400px] rounded-full bg-gradient-to-tr from-accent/5 to-transparent blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-medium mb-6" data-aos="fade-down">
+        <Icon name="Sparkles" size={16} client:load />
+        <span>Minerały</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-6" data-aos="fade-up">
+        <span class="bg-gradient-to-r from-[#2B5C3F] to-[#3A5A4E] bg-clip-text text-transparent">8 niezbędnych</span>
+        <span class="relative inline-block">
+          <span class="bg-gradient-to-r from-[#2B5C3F] to-[#3A5A4E] bg-clip-text text-transparent">minerałów</span>
+          <div class="absolute -bottom-2 left-0 w-full h-2 bg-accent/20 -rotate-1"></div>
+        </span>
+      </h2>
+      <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">
+        które potrzebują Twoje rośliny
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {minerals.map((mineral, index) => (
+        <div 
+          class="group relative p-8 rounded-2xl bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(43,92,63,0.15)]"
+          data-aos="fade"
+          data-aos-delay={index * 100}
+        >
+          <div class="absolute inset-0 bg-gradient-to-br opacity-100 group-hover:opacity-0 transition-all duration-300 rounded-2xl"
+            class:list={[mineral.color]}>
+          </div>
+          
+          <div class="relative">
+            <div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-[0_2px_10px_-2px_rgba(43,92,63,0.1)] mb-6">
+              <span class="text-2xl font-bold text-primary">{mineral.symbol}</span>
+            </div>
+            <h3 class="text-xl font-heading font-semibold bg-gradient-to-r from-[#2C4A40] to-[#3A5A4E] bg-clip-text text-transparent mb-4">{mineral.name}</h3>
+            <p class="text-gray-700 text-sm leading-relaxed">{mineral.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

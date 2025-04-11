@@ -1,0 +1,104 @@
+---
+import { Icon } from './Icons';
+
+const features = [
+  {
+    title: "Gwarantują wyższą wydajność z hektara",
+    description: "Nasze nawozy mineralne zwiększają plony nawet o 30% w porównaniu do tradycyjnych metod. Działają długotrwale, zapewniając roślinom stały dostęp do składników odżywczych przez cały sezon wegetacyjny.",
+    icon: "TrendingUp",
+    color: "from-emerald-500/30 to-emerald-600/40"
+  },
+  {
+    title: "Zwiększają odporność roślin na choroby i szkodniki w 93%",
+    description: "Wzmacniają naturalną odporność roślin poprzez dostarczanie zbilansowanych mikroelementów. Rośliny stają się bardziej odporne na patogeny i szkodniki, co redukuje potrzebę stosowania środków ochrony roślin.",
+    icon: "Leaf",
+    color: "from-green-500/30 to-green-600/40"
+  },
+  {
+    title: "Poprawiają jakość i wartość odżywczą plonów",
+    description: "Minerały zawarte w naszych nawozach wpływają na lepsze wybarwienie owoców, wyższą zawartość cukrów i witamin. Plony są nie tylko większe, ale też zdrowsze i bardziej wartościowe.",
+    icon: "Wheat",
+    color: "from-amber-500/30 to-amber-600/40"
+  },
+  {
+    title: "Są w 100% naturalne i bezpieczne dla środowiska",
+    description: "Nawozy Vulora są produkowane wyłącznie z naturalnych minerałów skalnych, bez dodatku syntetycznych substancji. Nie zaburzają równowagi ekologicznej i są bezpieczne dla organizmów glebowych.",
+    icon: "Globe",
+    color: "from-blue-500/30 to-blue-600/40"
+  },
+  {
+    title: "Poprawiają strukturę gleby i zwiększają ilość próchnicy",
+    description: "Minerały skalne poprawiają strukturę gleby, zwiększając jej pojemność wodną i powietrzną. Wspierają rozwój mikroorganizmów glebowych, co przyspiesza tworzenie się próchnicy.",
+    icon: "Sprout",
+    color: "from-teal-500/30 to-teal-600/40"
+  },
+  {
+    title: "Zwiększamy sorpcyjność gleby",
+    description: "Nasze produkty znacząco zwiększają zdolność gleby do zatrzymywania składników pokarmowych i wody. Efektywnie zwalcza to suszę poprzez zatrzymywanie wody w glebie, co jest kluczowe w okresach niedoboru opadów. Przekłada się to również na lepsze wykorzystanie nawozów i mniejsze straty.",
+    icon: "Droplets",
+    color: "from-sky-500/30 to-sky-600/40"
+  }
+];
+---
+
+<section id="features" class="relative py-20 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[linear-gradient(200deg,#f0f9f0_0%,#ffffff_50%,#f0f9f0_100%)]"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-t from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute w-[600px] h-[600px] -top-[300px] -left-[300px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"></div>
+    <div class="absolute w-[800px] h-[800px] -bottom-[400px] -right-[400px] rounded-full bg-gradient-to-tr from-accent/5 to-transparent blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-medium mb-6" data-aos="fade-down">
+        <Icon name="Sparkles" size={16} client:load />
+        <span>Co nas wyróżnia</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-6" data-aos="fade-up">
+        <span class="bg-gradient-to-r from-[#2B5C3F] to-[#3A5A4E] bg-clip-text text-transparent">Dlaczego</span>
+        <span class="relative inline-block">
+          <span class="bg-gradient-to-r from-[#2B5C3F] to-[#3A5A4E] bg-clip-text text-transparent">Vulora?</span>
+          <div class="absolute -bottom-2 left-0 w-full h-2 bg-accent/20 -rotate-1"></div>
+        </span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((feature, index) => (
+        <div 
+          class="group relative h-[200px] [perspective:1000px] cursor-pointer"
+          data-aos="fade"
+          data-aos-delay={index * 100}
+        >
+          <div class="w-full h-full transition-all duration-500 relative [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            <!-- Front of card -->
+            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+              <div class="h-full p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)]">
+                <div class="absolute inset-0 bg-gradient-to-br opacity-100 rounded-2xl" class:list={[feature.color]}></div>
+                <div class="relative h-full">
+                  <div class="w-12 h-12 bg-white/80 rounded-xl flex items-center justify-center shadow-[0_2px_10px_-2px_rgba(43,92,63,0.1)] mb-4">
+                    <Icon name={feature.icon} size={24} className="text-primary" client:load />
+                  </div>
+                  <p class="text-gray-800 font-medium mb-8">{feature.title}</p>
+                  <div class="absolute bottom-2 right-2 text-xs text-primary/60 flex items-center gap-1 bg-white/80 px-2 py-1 rounded-full">
+                    <span>Czytaj więcej</span>
+                    <Icon name="ArrowRight" size={12} className="transition-transform group-hover:translate-x-1" client:load />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Back of card -->
+            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+              <div class="relative h-full p-6 rounded-2xl bg-white border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)]">
+                <p class="text-gray-600 text-sm leading-relaxed h-full">{feature.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

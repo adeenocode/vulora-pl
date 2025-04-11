@@ -1,0 +1,87 @@
+---
+import { Icon } from './Icons';
+
+const menuItems = [
+  { name: 'O nas', href: '#about' },
+  { name: 'Co nas wyróżnia', href: '#features' },
+  { name: 'Produkty', href: '#products' },
+  { name: 'Certyfikacja', href: '#certification' },
+  { name: 'Współpraca', href: '#cooperation' },
+  { name: 'Kontakt', href: '#contact' },
+];
+---
+
+<footer class="relative overflow-hidden bg-white">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[#f8fbf8]"></div>
+    <div class="absolute w-[800px] h-[800px] -top-[400px] -right-[400px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"></div>
+    <div class="absolute w-[600px] h-[600px] -bottom-[300px] -left-[300px] rounded-full bg-gradient-to-tr from-accent/5 to-transparent blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 pt-20 pb-8">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-24 mb-12">
+      <!-- Logo and Slogan -->
+      <div>
+        <a href="/" class="inline-block mb-6 hover:opacity-80 transition-opacity">
+          <img src="/images/logo.svg" alt="Vulora" class="h-10 w-auto" />
+        </a>
+        <p class="text-xl text-gray-600 mb-8">
+          Z natury dla natury – mineralne wsparcie dla Twojej gleby oraz zdrowych plonów
+        </p>
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-medium">
+          <Icon name="Leaf" size={16} client:load />
+          <span>100% naturalne rozwiązania</span>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <h4 class="text-lg font-semibold text-primary mb-4">Menu</h4>
+          <ul class="space-y-2">
+            {menuItems.slice(0, 3).map(item => (
+              <li>
+                <a 
+                  href={item.href}
+                  class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold text-primary mb-4">&nbsp;</h4>
+          <ul class="space-y-2">
+            {menuItems.slice(3).map(item => (
+              <li>
+                <a 
+                  href={item.href}
+                  class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 border-t border-primary/5">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-600 text-sm">
+          © {new Date().getFullYear()} Vulora. Wszystkie prawa zastrzeżone.
+        </p>
+        <div class="flex items-center gap-6">
+          <a href="/polityka-prywatnosci" class="text-gray-600 hover:text-primary text-sm transition-colors duration-200">
+            Polityka prywatności
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

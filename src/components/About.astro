@@ -1,0 +1,175 @@
+---
+import { Icon } from './Icons';
+---
+
+<section id="about" class="relative py-20 overflow-hidden">
+  <!-- Uproszczone tło -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[linear-gradient(140deg,#111827_0%,#1f2937_60%,#111827_100%)]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <!-- Nagłówek sekcji -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium mb-6 border border-white/10">
+        <Icon name="Sparkles" size={16} client:load />
+        <span>O nas</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-6">
+        <span class="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Odkryj innowacyjność</span>
+        <span class="relative inline-block">
+          <span class="bg-gradient-to-r from-[#6AB658] via-[#8FD87A] to-[#A8E697] bg-clip-text text-transparent">Vulora</span>
+          <div class="absolute -bottom-2 left-0 w-full h-2 bg-[#6AB658]/20"></div>
+        </span>
+      </h2>
+      <p class="text-xl text-gray-300">
+        Vulora to innowacyjna firma specjalizująca się w produkcji naturalnych nawozów mineralnych ze skał wulkanicznych. 
+        Nasze produkty łączą w sobie siłę natury z nowoczesną technologią, zapewniając zrównoważony rozwój upraw i ochronę środowiska.
+      </p>
+    </div>
+
+    <!-- Nowoczesny układ z kartami -->
+    <div class="space-y-24 max-w-6xl mx-auto">
+      <!-- Pierwszy element -->
+      <div class="relative">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative">
+          <!-- Obrazek -->
+          <div class="md:col-span-6 relative h-full min-h-[300px]">
+            <img 
+              src="/images/pole3.jpg" 
+              alt="Zielone pola uprawne z górami w tle" 
+              class="w-full h-full rounded-xl object-cover shadow-xl absolute inset-0"
+            />
+          </div>
+          
+          <!-- Tekst w karcie -->
+          <div class="md:col-span-6 p-8 bg-white/5 rounded-xl border border-white/10 shadow-xl h-full flex flex-col justify-center">
+            <div class="flex items-center mb-4">
+              <div class="bg-gradient-to-br from-[#6AB658] to-[#8FD87A] p-3 rounded-lg mr-4 shadow-lg">
+                <Icon name="Leaf" size={24} className="text-white" client:load />
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-white">
+                Nawozy potasowo-fosforowe
+              </h3>
+            </div>
+            
+            <p class="text-gray-200 mb-4">
+              Nawozy potasowo-fosforowe są jednym z podstawowych środków, stosowanych we wszystkich typach upraw. Należą one do nawozów wieloskładnikowych. Są one stosowane zarówno przedsiewnie, jak i pogłównie.
+            </p>
+            
+            <p class="text-gray-300">
+              Produkty te stosowane są w celu przygotowania ozimin do okresu niskich temperatur, a stosowane wiosną, zapewniają roślinom dobry start. Ponadto, fosfor i potas są kluczowymi pierwiastkami, niezbędnymi roślinom do prawidłowego wzrostu i rozwoju.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Drugi element -->
+      <div class="relative">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative">
+          <!-- Tekst w karcie -->
+          <div class="md:col-span-6 md:order-1 order-last p-8 bg-white/5 rounded-xl border border-white/10 shadow-xl h-full flex flex-col justify-center">
+            <div class="flex items-center mb-4">
+              <div class="bg-gradient-to-br from-[#6AB658] to-[#8FD87A] p-3 rounded-lg mr-4 shadow-lg">
+                <Icon name="Wheat" size={24} className="text-white" client:load />
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-white">
+                Rozumiemy współczesne rolnictwo
+              </h3>
+            </div>
+            
+            <p class="text-gray-200 mb-4">
+              Nasz nawóz PK to nie tylko idealne uzupełnienie minerałów, ale również wyjątkowa ochrona dla gleby. 
+              Dzięki starannie dobranym dodatkom skał mineralnych, stworzyliśmy rozwiązanie, które kompleksowo wspiera rozwój upraw.
+            </p>
+            
+            <p class="text-gray-300">
+              Innowacyjna formuła pozwala rozwiązać kluczowe problemy współczesnego rolnictwa podczas jednego zabiegu, 
+              zapewniając optymalne odżywienie roślin przy jednoczesnej regeneracji struktury gleby.
+            </p>
+          </div>
+          
+          <!-- Obrazek -->
+          <div class="md:col-span-6 md:order-2 relative h-full min-h-[300px]">
+            <img 
+              src="/images/rolnictwo.jpg" 
+              alt="Kombajn pracujący w polu o zachodzie słońca" 
+              class="w-full h-full rounded-xl object-cover shadow-xl absolute inset-0"
+            />
+          </div>
+        </div>
+      </div>
+      
+      <!-- Trzeci element - Badania gleby -->
+      <div class="relative">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative">
+          <!-- Obrazek -->
+          <div class="md:col-span-6 relative h-full min-h-[300px]">
+            <img 
+              src="/images/divider3.jpg" 
+              alt="Laboratorium badań gleby" 
+              class="w-full h-full rounded-xl object-cover shadow-xl absolute inset-0"
+            />
+          </div>
+          
+          <!-- Tekst w karcie -->
+          <div class="md:col-span-6 p-8 bg-white/5 rounded-xl border border-white/10 shadow-xl h-full flex flex-col justify-center">
+            <div class="flex items-center mb-4">
+              <div class="bg-gradient-to-br from-[#6AB658] to-[#8FD87A] p-3 rounded-lg mr-4 shadow-lg">
+                <Icon name="FlaskConical" size={24} className="text-white" client:load />
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-white">
+                Profesjonalne badania gleby
+              </h3>
+            </div>
+            
+            <p class="text-gray-200 mb-4">
+              Jako profesjonaliści rekomendujemy przeprowadzenie kompleksowej analizy gleby przed zastosowaniem nawozów. 
+              Precyzyjne badanie pozwala nam dobrać optymalny skład i dawkę nawozu PK dostosowaną do specyficznych potrzeb Twoich upraw.
+            </p>
+            
+            <p class="text-gray-300">
+              Indywidualne podejście do każdego pola gwarantuje maksymalną efektywność nawożenia przy jednoczesnej optymalizacji kosztów i minimalizacji wpływu na środowisko.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Czwarty element - Jakość surowców -->
+      <div class="relative mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative">
+          <!-- Tekst w karcie -->
+          <div class="md:col-span-6 md:order-1 order-last p-8 bg-white/5 rounded-xl border border-white/10 shadow-xl h-full flex flex-col justify-center">
+            <div class="flex items-center mb-4">
+              <div class="bg-gradient-to-br from-[#6AB658] to-[#8FD87A] p-3 rounded-lg mr-4 shadow-lg">
+                <Icon name="Check" size={24} className="text-white" client:load />
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-white">
+                Najwyższa jakość surowców
+              </h3>
+            </div>
+            
+            <p class="text-gray-200 mb-4">
+              Na każdym etapie produkcji wykorzystujemy wyłącznie surowce najwyższej jakości, starannie wyselekcjonowane 
+              i poddane rygorystycznej kontroli. Dzięki temu nasze nawozy charakteryzują się wyjątkową skutecznością i powtarzalnością działania.
+            </p>
+            
+            <p class="text-gray-300">
+              Stosujemy zaawansowane technologie przetwarzania, które zachowują wszystkie cenne właściwości minerałów, 
+              zapewniając ich optymalną biodostępność dla roślin.
+            </p>
+          </div>
+          
+          <!-- Obrazek -->
+          <div class="md:col-span-6 md:order-2 relative h-full min-h-[300px]">
+            <img 
+              src="/images/surowce.jpg" 
+              alt="Kontrola jakości surowców" 
+              class="w-full h-full rounded-xl object-cover shadow-xl absolute inset-0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

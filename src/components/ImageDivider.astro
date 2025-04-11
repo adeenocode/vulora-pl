@@ -1,0 +1,21 @@
+---
+interface Props {
+  image: string;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="relative w-full h-[30vh] md:h-[60vh] overflow-hidden">
+  <div class="absolute inset-0">
+    <!-- Top gradient transition -->
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[#f0f9f0] to-transparent z-20"></div>
+    
+    <!-- Image -->
+    <img 
+      src={`/images/${image}`}
+      alt="Pole uprawne" 
+      class="w-full h-full object-cover object-center scale-105"
+    />
+  </div>
+</section>

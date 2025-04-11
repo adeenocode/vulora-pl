@@ -1,0 +1,466 @@
+---
+import { ProductModal } from './ProductModal';
+import { Icon } from './Icons';
+
+const products = [
+  {
+    name: "Nawóz fosforowy",
+    type: "Nawozy mineralne zawierające fosfor, wapń, siarkę, krzem oraz mikroskładniki",
+    dataSheet: "/datasheets/VULORA-KARTA-FOSFOROWY.pdf",
+    image: "/images/bigbag-fosforowy-PL.jpg",
+    features: [
+      "Fosfor (P) - wspiera rozwój korzeni i kwitnienie oraz zwiększa odporność roślin na stresy środowiskowe",
+      "Wapń (Ca) - wzmacnia ściany komórkowe roślin i poprawia ich odporność na choroby oraz reguluje pH gleby",
+      "Siarka (S) - niezbędna do syntezy białek i enzymów oraz wspiera procesy fotosyntezy i jakość plonów",
+      "Krzem (Si) - zwiększa odporność roślin na choroby i szkodniki oraz wspomaga rozwój silnych tkanek",
+      "Mikroskładniki - magnez, cynk, miedź, bor i mangan",
+      "Stosowanie wiosną - nawozy bogate w fosfor i wapń, aby wspierać wzrost korzeni i kwitnienie",
+      "Stosowanie podczas wegetacji - regularne nawożenie siarką i mikroskładnikami poprawia ogólną kondycję roślin"
+    ]
+  },
+  {
+    name: "Nawóz potasowy",
+    type: "Nawozy potasowe z siarką, krzemem i mikroskładnikami",
+    dataSheet: "/datasheets/VULORA-KARTA-POTAS.pdf",
+    image: "/images/bigbag-potasowy-PL.jpg",
+    features: [
+      "Potas (K) - wspiera procesy fotosyntezy, transport substancji odżywczych oraz zwiększa odporność na stresy",
+      "Siarka (S) - niezbędna do syntezy białek i enzymów oraz wspomaga procesy fotosyntezy i jakość plonów",
+      "Krzem (Si) - zwiększa odporność roślin na choroby i szkodniki oraz wspomaga rozwój silnych tkanek",
+      "Mikroskładniki - magnez, cynk, miedź, bor i mangan",
+      "Kluczowe dla procesów biochemicznych w roślinach",
+      "Stosowanie wiosną - nawozy bogate w potas i siarkę, aby wspierać wzrost i kwitnienie roślin",
+      "Stosowanie podczas wegetacji - regularne nawożenie krzemem i mikroskładnikami poprawia ogólną kondycję roślin"
+    ]
+  },
+  {
+    name: "Mineralizator - polepszacz glebowy",
+    type: "Naturalny polepszacz struktury i żyzności gleby",
+    dataSheet: "/datasheets/VULORA-KARTA-MINERALIZATOR .pdf",
+    image: "/images/bigbag-mineralizator-PL.jpg",
+    features: [
+      "Poprawia strukturę i właściwości fizykochemiczne gleby",
+      "Zwiększa pojemność sorpcyjną i wodną gleby",
+      "Wspomaga rozwój pożytecznych mikroorganizmów glebowych",
+      "Optymalizuje pH gleby i zwiększa przyswajalność składników pokarmowych",
+      "Wzbogaca glebę w naturalne minerały i mikroelementy",
+      "Zwiększa efektywność nawożenia mineralnego",
+      "Poprawia żyzność i urodzajność gleby"
+    ]
+  },
+  {
+    name: "Do trawników i terenów zielonych",
+    type: "Specjalnie opracowany preparat do pielęgnacji trawników",
+    dataSheet: "/datasheets/vm-nawoz-trawnik.pdf",
+    image: "/images/trawy-PL.jpg",
+    features: [
+      "Poprawia zdrowie trawnika, jego kolor oraz gęstość",
+      "Wzmacnia system korzeniowy",
+      "Zwiększa odporność na choroby i niekorzystne warunki atmosferyczne",
+      "Stosowanie: wiosną oraz jesienią, w zależności od potrzeb trawnika",
+      "Nie należy stosować w okresach suszy",
+      "Unikać stosowania po intensywnych opadach deszczu, aby uniknąć wypłukiwania składników odżywczych",
+      "Regularne stosowanie przyczynia się do uzyskania pięknego, zdrowego trawnika"
+    ]
+  },
+  {
+    name: "Pod uprawę iglaków",
+    type: "Specjalistyczny nawóz do roślin kwaśnolubnych",
+    dataSheet: "/datasheets/vm-nawoz-borowka.pdf",
+    image: "/images/iglaki-PL.jpg",
+    features: [
+      "Utrzymuje odpowiednią kwasowość podłoża, kluczową dla borówek i żurawin",
+      "Wiosną - stosuj nawozy bogate w azot, aby wspierać intensywny wzrost",
+      "Podczas kwitnienia - dodaj nawozy fosforowe, aby wspierać rozwój owoców",
+      "Dostosowany do specyficznych potrzeb roślin kwaśnolubnych",
+      "Wspomaga kwitnienie i zawiązywanie owoców",
+      "Zapewnia optymalne warunki dla zdrowego wzrostu i obfitych plonów"
+    ]
+  },
+];
+
+const productDetails = products.map(({ name, type, features, dataSheet }) => ({
+  name,
+  type,
+  features,
+  dataSheet
+}));
+---
+
+<section id="products" class="relative py-20 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[linear-gradient(140deg,#111827_0%,#1f2937_60%,#111827_100%)]"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-t from-transparent via-[#111827]/90 to-[#111827]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#111827]/90 to-[#111827]"></div>
+    <div class="absolute w-[600px] h-[600px] -top-[300px] -left-[300px] rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"></div>
+    <div class="absolute w-[800px] h-[800px] -bottom-[400px] -right-[400px] rounded-full bg-gradient-to-tr from-accent/10 to-transparent blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(43,92,63,0.1)_0%,transparent_50%)]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium mb-6 backdrop-blur-sm border border-white/10" data-aos="fade-down">
+        <Icon name="Sparkles" size={16} client:load />
+        <span>Naturalne produkty</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-6" data-aos="fade-up">
+        <span class="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Poznaj produkty</span>
+        <span class="relative inline-block">
+          <span class="bg-gradient-to-r from-[#6AB658] via-[#8FD87A] to-[#A8E697] bg-clip-text text-transparent">Vulora</span>
+          <div class="absolute -bottom-2 left-0 w-full h-2 bg-[#6AB658]/20 -rotate-1"></div>
+        </span>
+      </h2>
+      <p class="text-xl text-gray-300" data-aos="fade-up" data-aos-delay="100">
+        Specjalistyczne rozwiązania mineralne dla różnych typów upraw
+      </p>
+
+      <!-- Tab Switcher -->
+      <div class="flex flex-col sm:flex-row p-1 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 mt-12 w-full sm:w-auto sm:inline-flex" data-aos="fade-up" data-aos-delay="150">
+        <button 
+          class="tab-button active w-full sm:w-auto px-6 py-2.5 rounded-lg text-white bg-[#6AB658] transition-all duration-300 text-sm sm:text-base font-medium"
+          data-tab="all"
+        >
+          Wszystkie
+        </button>
+        <button 
+          class="tab-button w-full sm:w-auto px-6 py-2.5 rounded-lg text-white/70 hover:text-white transition-all duration-300 text-sm sm:text-base font-medium mt-1 sm:mt-0 sm:ml-1"
+          data-tab="home"
+        >
+          Do zastosowań domowych
+        </button>
+        <button 
+          class="tab-button w-full sm:w-auto px-6 py-2.5 rounded-lg text-white/70 hover:text-white transition-all duration-300 text-sm sm:text-base font-medium mt-1 sm:mt-0 sm:ml-1"
+          data-tab="commercial"
+        >
+          Do upraw wielkopowierzchniowych
+        </button>
+      </div>
+    </div>
+    
+    <div id="all-tab" class="product-tab max-w-3xl mx-auto space-y-8">
+      {products.map((product, index) => (
+        <div 
+          class="group bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-[0_4px_20px_-4px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.3)] transition-all duration-200"
+          data-aos="fade-up"
+          data-aos-delay={index * 50}
+          data-aos-duration="400"
+        >
+          <img 
+            src={product.image} 
+            alt={product.name}
+            class="w-full md:w-64 h-64 md:h-64 object-cover object-center group-hover:scale-[1.02] transition-transform duration-200 aspect-square"
+          />
+          <div class="p-6 md:p-8 flex flex-col flex-grow">
+            <div class="flex flex-col h-full">
+              <h3 class="text-xl font-semibold text-white mb-4">{product.name}</h3>
+              {product.name === "Nawóz fosforowy" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Wspiera rozwój korzeni i kwitnienie. Wzbogacony o wapń, siarkę i mikroskładniki.
+                </p>
+              )}
+              {product.name === "Nawóz potasowy" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Wspomaga fotosyntezę i transport składników. Zwiększa odporność na stresy.
+                </p>
+              )}
+              {product.name === "Do trawników i terenów zielonych" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Zapewnia gęsty, zdrowy trawnik. Wzmacnia system korzeniowy.
+                </p>
+              )}
+              {product.name === "Pod uprawę iglaków i borówek" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Specjalnie dostosowany do roślin kwaśnolubnych. Wspiera rozwój owoców.
+                </p>
+              )}
+              {product.name === "Mineralizator - polepszacz glebowy" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Naturalnie poprawia strukturę i żyzność gleby. Zwiększa efektywność nawożenia.
+                </p>
+              )}
+            </div>
+            <div class="mt-auto flex items-center justify-between">
+              <button 
+              class="group relative overflow-hidden inline-flex items-center px-6 py-3 bg-[#6AB658] text-white rounded-xl hover:shadow-lg hover:shadow-[#6AB658]/20 transition-all duration-300 font-medium text-sm"
+              onclick={`window.openProductModal(${index})`}
+              >
+                <span class="relative z-10">Zobacz szczegóły</span>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#6AB658] to-[#6AB658]/80 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></div>
+              </button>
+              <a 
+                href={product.dataSheet} 
+                class="p-3 rounded-xl hover:bg-white/10 text-white/80 hover:text-white transition-colors duration-200"
+                target="_blank"
+                title="Pobierz kartę charakterystyki"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div id="commercial-tab" class="product-tab max-w-3xl mx-auto space-y-8 hidden">
+      {products.slice(0, 3).map((product, index) => (
+        <div 
+          class="group bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-[0_4px_20px_-4px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.3)] transition-all duration-200"
+          data-aos="fade-up"
+          data-aos-delay={index * 50}
+          data-aos-duration="400"
+        >
+          <img 
+            src={product.image} 
+            alt={product.name}
+            class="w-full md:w-64 h-64 md:h-64 object-cover object-center group-hover:scale-[1.02] transition-transform duration-200 aspect-square"
+          />
+          <div class="p-6 md:p-8 flex flex-col flex-grow">
+            <div class="flex flex-col h-full">
+              <h3 class="text-xl font-semibold text-white mb-4">{product.name}</h3>
+              {product.name === "Nawóz fosforowy" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Wspiera rozwój korzeni i kwitnienie. Wzbogacony o wapń, siarkę i mikroskładniki.
+                </p>
+              )}
+              {product.name === "Nawóz potasowy" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Wspomaga fotosyntezę i transport składników. Zwiększa odporność na stresy.
+                </p>
+              )}
+              {product.name === "Do trawników i terenów zielonych" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Zapewnia gęsty, zdrowy trawnik. Wzmacnia system korzeniowy.
+                </p>
+              )}
+              {product.name === "Pod uprawę iglaków i borówek" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Specjalnie dostosowany do roślin kwaśnolubnych. Wspiera rozwój owoców.
+                </p>
+              )}
+              {product.name === "Mineralizator - polepszacz glebowy" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Naturalnie poprawia strukturę i żyzność gleby. Zwiększa efektywność nawożenia.
+                </p>
+              )}
+            </div>
+            <div class="mt-auto flex items-center justify-between">
+              <button 
+              class="group relative overflow-hidden inline-flex items-center px-6 py-3 bg-[#6AB658] text-white rounded-xl hover:shadow-lg hover:shadow-[#6AB658]/20 transition-all duration-300 font-medium text-sm"
+              onclick={`window.openProductModal(${index})`}
+              >
+                <span class="relative z-10">Zobacz szczegóły</span>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#6AB658] to-[#6AB658]/80 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></div>
+              </button>
+              <a 
+                href={product.dataSheet} 
+                class="p-3 rounded-xl hover:bg-white/10 text-white/80 hover:text-white transition-colors duration-200"
+                target="_blank"
+                title="Pobierz kartę charakterystyki"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div id="home-tab" class="product-tab max-w-3xl mx-auto space-y-8 hidden">
+      {products.slice(3).map((product, index) => (
+        <div 
+          class="group bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-[0_4px_20px_-4px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.3)] transition-all duration-200"
+          data-aos="fade-up"
+          data-aos-delay={index * 50}
+          data-aos-duration="400"
+        >
+          <img 
+            src={product.image} 
+            alt={product.name}
+            class="w-full md:w-64 h-64 md:h-64 object-cover object-center group-hover:scale-[1.02] transition-transform duration-200 aspect-square"
+          />
+          <div class="p-6 md:p-8 flex flex-col flex-grow">
+            <div class="flex flex-col h-full">
+              <h3 class="text-xl font-semibold text-white mb-4">{product.name}</h3>
+              {product.name === "Do trawników i terenów zielonych" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Zapewnia gęsty, zdrowy trawnik. Wzmacnia system korzeniowy.
+                </p>
+              )}
+              {product.name === "Pod uprawę iglaków i borówek" && (
+                <p class="text-gray-400 mb-8 line-clamp-2 text-sm">
+                  Specjalnie dostosowany do roślin kwaśnolubnych. Wspiera rozwój owoców.
+                </p>
+              )}
+            </div>
+            <div class="mt-auto flex items-center justify-between">
+              <button 
+              class="group relative overflow-hidden inline-flex items-center px-6 py-3 bg-[#6AB658] text-white rounded-xl hover:shadow-lg hover:shadow-[#6AB658]/20 transition-all duration-300 font-medium text-sm"
+              onclick={`window.openProductModal(${index + 3})`}
+              >
+                <span class="relative z-10">Zobacz szczegóły</span>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#6AB658] to-[#6AB658]/80 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></div>
+              </button>
+              <a 
+                href={product.dataSheet} 
+                class="p-3 rounded-xl hover:bg-white/10 text-white/80 hover:text-white transition-colors duration-200"
+                target="_blank"
+                title="Pobierz kartę charakterystyki"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Custom Mixture Info -->
+    <div class="max-w-4xl mx-auto mt-16 rounded-2xl border border-primary/10 p-8 sm:p-12 text-center relative overflow-hidden bg-white/95 backdrop-blur-sm" data-aos="fade-up">
+      <!-- Background image with overlay -->
+      <div class="absolute inset-0">
+        <img 
+          src="/images/divider2.jpg" 
+          alt="Pole uprawne" 
+          class="w-full h-full object-cover object-center scale-105 brightness-[0.9]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-br from-white/90 to-white/80 backdrop-blur-[2px]"></div>
+      </div>
+      
+      <!-- Subtle gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent rounded-2xl"></div>
+      
+      <div class="max-w-2xl mx-auto relative z-10">
+        <div class="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center mx-auto mb-6 border border-gray-200">
+          <Icon name="FlaskConical" size={24} className="text-gray-600" client:load />
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-heading font-bold text-gray-800 mb-4">
+          Potrzebujesz spersonalizowanego rozwiązania?
+        </h3>
+        <p class="text-gray-600 mb-8 text-base sm:text-lg">
+          Stworzymy dla Ciebie indywidualną mieszankę nawozów dostosowaną do specyficznych potrzeb Twojego gospodarstwa.
+        </p>
+        <a
+          href="#contact"
+          class="group relative overflow-hidden inline-flex items-center px-6 py-3 bg-transparent text-gray-700 rounded-xl border border-gray-300 hover:bg-gray-50 transition-all duration-300 font-medium"
+        >
+          <span class="relative z-10">Skontaktuj się z nami</span>
+          <Icon name="ArrowRight" size={18} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" client:load />
+        </a>
+      </div>
+    </div>
+  </div>
+  <ProductModal client:load />
+</section>
+
+<script define:vars={{ productDetails }}>
+  let currentModal = null;
+
+  window.openProductModal = (index) => {
+    const modal = document.createElement('div');
+    modal.innerHTML = `<product-modal data-product='${JSON.stringify(productDetails[index])}'></product-modal>`;
+    document.body.appendChild(modal);
+    currentModal = modal;
+  };
+
+  window.closeProductModal = () => {
+    if (currentModal) {
+      currentModal.remove();
+      currentModal = null;
+    }
+  };
+
+  class ProductModal extends HTMLElement {
+    constructor() {
+      super();
+      const product = JSON.parse(this.dataset.product);
+      this.render(product);
+    }
+
+    render(product) {
+      this.innerHTML = `
+        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white">
+              <h3 class="text-2xl font-heading font-bold text-primary">${product.name}</h3>
+              <button 
+                onclick="window.closeProductModal()" 
+                class="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="p-6">
+              <p class="text-lg font-medium text-primary mb-6 bg-primary/5 px-4 py-2 rounded-lg inline-block">${product.type}</p>
+              <ul class="space-y-3">
+                ${product.features.map(feature => `
+                  <li class="flex items-start">
+                    <span class="text-primary mr-3">•</span>
+                    <span class="text-gray-600">${feature}</span>
+                  </li>
+                `).join('')}
+              </ul>
+              <div class="mt-8 pt-6 border-t border-gray-100">
+                <h4 class="text-lg font-semibold text-primary mb-4">Do pobrania</h4>
+                <a 
+                  href="${product.dataSheet}" 
+                  class="inline-flex items-center px-4 py-2 bg-[#6AB658] text-white rounded-lg hover:bg-[#6AB658]/90 transition-colors"
+                  target="_blank"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Pobierz kartę charakterystyki
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Tab switching functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-button');
+    const productTabs = document.querySelectorAll('.product-tab');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update tab buttons
+        tabs.forEach(t => {
+          t.classList.remove('active', 'bg-[#6AB658]', 'text-white');
+          t.classList.add('text-white/70', 'bg-transparent');
+        });
+        tab.classList.add('active', 'bg-[#6AB658]', 'text-white');
+        tab.classList.remove('text-white/70', 'bg-transparent');
+
+        // Show selected tab content
+        const tabId = tab.getAttribute('data-tab');
+        productTabs.forEach(pt => {
+          pt.classList.add('hidden');
+        });
+        document.getElementById(`${tabId}-tab`).classList.remove('hidden');
+      });
+    });
+  });
+
+  customElements.define('product-modal', ProductModal);
+</script>

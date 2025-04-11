@@ -1,0 +1,96 @@
+---
+import { Icon } from './Icons';
+
+const hours = [
+  { day: "Poniedziałek - Piątek", hours: "8:00 - 16:00" },
+  { day: "Sobota", hours: "9:00 - 13:00" }
+];
+---
+
+<section id="contact" class="relative py-20 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[linear-gradient(160deg,#ffffff_0%,#f0f9f0_60%,#ffffff_100%)]"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-t from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute w-[600px] h-[600px] -top-[300px] -right-[300px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"></div>
+    <div class="absolute w-[800px] h-[800px] -bottom-[400px] -left-[400px] rounded-full bg-gradient-to-tr from-accent/5 to-transparent blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-medium mb-6" data-aos="fade-down">
+        <Icon name="Sparkles" size={16} client:load />
+        <span>Kontakt</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-6" data-aos="fade-up">
+        <span class="bg-gradient-to-r from-[#2B5C3F] to-[#3A5A4E] bg-clip-text text-transparent">Jesteśmy do</span>
+        <span class="relative inline-block">
+          <span class="bg-gradient-to-r from-[#2B5C3F] to-[#3A5A4E] bg-clip-text text-transparent">Państwa</span>
+          <div class="absolute -bottom-2 left-0 w-full h-2 bg-accent/20 -rotate-1"></div>
+        </span>
+        <span class="bg-gradient-to-r from-[#2B5C3F] to-[#3A5A4E] bg-clip-text text-transparent">dyspozycji</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div 
+        class="group bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(43,92,63,0.15)] transition-all duration-300"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-[0_2px_10px_-2px_rgba(43,92,63,0.1)] mb-6">
+          <Icon name="Clock" size={24} className="text-primary" client:load />
+        </div>
+        <h3 class="text-xl font-semibold text-primary mb-6">Godziny pracy</h3>
+        <div class="space-y-2">
+          {hours.map(({ day, hours }) => (
+            <div>
+              <p class="font-medium text-primary">{day}</p>
+              <p class="text-gray-600">{hours}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div 
+        class="group bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(43,92,63,0.15)] transition-all duration-300"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-[0_2px_10px_-2px_rgba(43,92,63,0.1)] mb-6">
+          <Icon name="MapPin" size={24} className="text-primary" client:load />
+        </div>
+        <h3 class="text-xl font-semibold text-primary mb-6">Adres</h3>
+        <address class="not-italic text-gray-600">
+          <p>Vulora Sp. z o.o.</p>
+          <p>Toruń</p>
+          <p>Polska</p>
+        </address>
+      </div>
+      <div 
+        class="group bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(43,92,63,0.15)] transition-all duration-300"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-[0_2px_10px_-2px_rgba(43,92,63,0.1)] mb-6">
+          <Icon name="Phone" size={24} className="text-primary" client:load />
+        </div>
+        <h3 class="text-xl font-semibold text-primary mb-6">Kontakt</h3>
+        <div class="space-y-2 text-gray-600">
+          <p>
+            <span class="font-medium">Telefon:</span><br />
+            <a href="tel:+48661265646" class="hover:text-primary transition-colors duration-200">
+              +48 661 265 646
+            </a>
+          </p>
+          <p>
+            <span class="font-medium">Email:</span><br />
+            <a href="mailto:kontakt@vulora.pl" class="hover:text-primary transition-colors duration-200">
+              kontak@vulora.pl
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+---
+import { Icon } from './Icons';
+
+const benefits = [
+  "Kompleksowe doradztwo agronomiczne",
+  "Indywidualny plan nawożenia",
+  "Stałe wsparcie techniczne i szkolenia",
+  "Terminowe dostawy",
+  "Elastyczne formy współpracy",
+  "Dostęp do najnowszych badań i technologii"
+];
+---
+
+<section id="cooperation" class="relative py-20 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[linear-gradient(220deg,#f0f9f0_0%,#ffffff_50%,#f0f9f0_100%)]"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-t from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#f0f9f0]/90 to-[#f0f9f0]"></div>
+    <div class="absolute w-[600px] h-[600px] -top-[300px] -right-[300px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"></div>
+    <div class="absolute w-[800px] h-[800px] -bottom-[400px] -left-[400px] rounded-full bg-gradient-to-tr from-accent/5 to-transparent blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8" data-aos="fade-right">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-medium">
+          <Icon name="Sparkles" size={16} client:load />
+          <span>Dołącz do nas</span>
+        </div>
+        
+        <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary">
+          Współpraca z 
+          <span class="relative inline-block">
+            Vulora
+            <div class="absolute -bottom-2 left-0 w-full h-2 bg-accent/20 -rotate-1"></div>
+          </span>
+        </h2>
+        
+        <p class="text-xl text-gray-600">
+          Dołącz do grona partnerów Vulora i wykorzystaj potencjał natury w swoim gospodarstwie.
+        </p>
+        <p class="text-gray-600">
+          Umów się na spotkanie z naszym doradcą i poznaj szczegóły oferty współpracy.
+        </p>
+        
+        <div class="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)]">
+          <h3 class="text-xl font-semibold text-primary mb-6">
+            Jako Twój zaufany partner biznesowy oferujemy:
+          </h3>
+          <ul class="space-y-4">
+            {benefits.map((benefit) => (
+              <li class="flex items-start gap-3 text-gray-700">
+                <div class="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon name="Check" size={16} className="text-primary" client:load />
+                </div>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      
+      <div 
+        class="bg-white/50 backdrop-blur-sm border border-primary/5 p-8 rounded-2xl shadow-[0_4px_20px_-4px_rgba(43,92,63,0.1)]"
+        data-aos="fade-left"
+        data-aos-delay="100"
+      >
+        <h3 class="text-2xl font-heading font-bold text-primary mb-6">
+          Umów się na konsultację już dziś!
+        </h3>
+        <form class="space-y-4">
+          <div>
+            <input 
+              type="text" 
+              placeholder="Imię i nazwisko"
+              class="w-full px-4 py-3 rounded-xl bg-white border border-primary/10 placeholder-gray-400 focus:outline-none focus:border-primary/20 focus:ring-2 focus:ring-primary/5"
+            />
+          </div>
+          <div>
+            <input 
+              type="email" 
+              placeholder="Email"
+              class="w-full px-4 py-3 rounded-xl bg-white border border-primary/10 placeholder-gray-400 focus:outline-none focus:border-primary/20 focus:ring-2 focus:ring-primary/5"
+            />
+          </div>
+          <div>
+            <input 
+              type="tel" 
+              placeholder="Telefon"
+              class="w-full px-4 py-3 rounded-xl bg-white border border-primary/10 placeholder-gray-400 focus:outline-none focus:border-primary/20 focus:ring-2 focus:ring-primary/5"
+            />
+          </div>
+          <div>
+            <textarea 
+              placeholder="Wiadomość"
+              rows="4"
+              class="w-full px-4 py-3 rounded-xl bg-white border border-primary/10 placeholder-gray-400 focus:outline-none focus:border-primary/20 focus:ring-2 focus:ring-primary/5"
+            ></textarea>
+          </div>
+          <button 
+            type="submit"
+            class="w-full bg-primary text-white font-semibold py-4 rounded-xl hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
+          >
+            Wyślij
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
