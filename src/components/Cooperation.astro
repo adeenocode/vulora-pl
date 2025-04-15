@@ -139,7 +139,7 @@ const benefits = [
   </div>
 </section>
 
-<script>
+<script client:load>
   document.getElementById('contactForm')?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
