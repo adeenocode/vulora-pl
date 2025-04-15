@@ -98,45 +98,20 @@ import { Icon } from './Icons';
         </div>
       </div>
       
-      <!-- Trzeci element - Badania gleby -->
+      <!-- Trzeci element - Jakość surowców -->
       <div class="relative">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative">
           <!-- Obrazek -->
           <div class="md:col-span-6 relative h-full min-h-[300px]">
             <img 
-              src="/images/divider3.jpg" 
-              alt="Laboratorium badań gleby" 
+              src="/images/surowce.jpg" 
+              alt="Kontrola jakości surowców" 
               class="w-full h-full rounded-xl object-cover shadow-xl absolute inset-0"
             />
           </div>
           
           <!-- Tekst w karcie -->
           <div class="md:col-span-6 p-8 bg-white/5 rounded-xl border border-white/10 shadow-xl h-full flex flex-col justify-center">
-            <div class="flex items-center mb-4">
-              <div class="bg-gradient-to-br from-[#6AB658] to-[#8FD87A] p-3 rounded-lg mr-4 shadow-lg">
-                <Icon name="FlaskConical" size={24} className="text-white" client:load />
-              </div>
-              <h3 class="text-2xl font-heading font-bold text-white">
-                Badania gleby
-              </h3>
-            </div>
-            
-            <p class="text-gray-200 mb-4">
-              Jako profesjonaliści rekomendujemy przeprowadzenie kompleksowej analizy gleby przed zastosowaniem nawozów. Precyzyjne badanie pozwala nam dobrać optymalny skład i dawkę nawozu PK dostosowaną do specyficznych potrzeb Twoich upraw.
- </p>
-            
-            <p class="text-gray-300">
-              Indywidualne podejście do każdego pola gwarantuje maksymalną efektywność nawożenia przy jednoczesnej optymalizacji kosztów.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Czwarty element - Jakość surowców -->
-      <div class="relative mt-24">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative">
-          <!-- Tekst w karcie -->
-          <div class="md:col-span-6 md:order-1 order-last p-8 bg-white/5 rounded-xl border border-white/10 shadow-xl h-full flex flex-col justify-center">
             <div class="flex items-center mb-4">
               <div class="bg-gradient-to-br from-[#6AB658] to-[#8FD87A] p-3 rounded-lg mr-4 shadow-lg">
                 <Icon name="Check" size={24} className="text-white" client:load />
@@ -156,12 +131,37 @@ import { Icon } from './Icons';
               zapewniając ich optymalną biodostępność dla roślin.
             </p>
           </div>
-          
+        </div>
+      </div>
+
+      <!-- Czwarty element - Badania gleby -->
+      <div class="relative mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative">
+          <!-- Tekst w karcie -->
+          <div class="md:col-span-6 order-last md:order-1 p-8 bg-white/5 rounded-xl border border-white/10 shadow-xl h-full flex flex-col justify-center">
+            <div class="flex items-center mb-4">
+              <div class="bg-gradient-to-br from-[#6AB658] to-[#8FD87A] p-3 rounded-lg mr-4 shadow-lg">
+                <Icon name="FlaskConical" size={24} className="text-white" client:load />
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-white">
+                Badania gleby
+              </h3>
+            </div>
+            
+            <p class="text-gray-200 mb-4">
+              Jako profesjonaliści rekomendujemy przeprowadzenie kompleksowej analizy gleby przed zastosowaniem nawozów. Precyzyjne badanie pozwala nam dobrać optymalny skład i dawkę nawozu PK dostosowaną do specyficznych potrzeb Twoich upraw.
+ </p>
+            
+            <p class="text-gray-300">
+              Indywidualne podejście do każdego pola gwarantuje maksymalną efektywność nawożenia przy jednoczesnej optymalizacji kosztów.
+            </p>
+          </div>
+
           <!-- Obrazek -->
-          <div class="md:col-span-6 md:order-2 relative h-full min-h-[300px]">
+          <div class="md:col-span-6 order-first md:order-2 relative h-full min-h-[300px]">
             <img 
-              src="/images/surowce.jpg" 
-              alt="Kontrola jakości surowców" 
+              src="/images/divider3.jpg" 
+              alt="Laboratorium badań gleby" 
               class="w-full h-full rounded-xl object-cover shadow-xl absolute inset-0"
             />
           </div>
